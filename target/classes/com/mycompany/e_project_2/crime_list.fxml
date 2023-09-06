@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.e_project_2.crime_list_Controller">
+   <children>
+      <ScrollPane>
+         <content>
+            <AnchorPane>
+               <children>
+                  <TableView fx:id="table_crime" layoutX="-2.0" layoutY="-1.0" prefHeight="400.0" prefWidth="1172.0">
+                     <columns>
+                        <TableColumn fx:id="col_stt" prefWidth="42.0" text="STT" />
+                        <TableColumn fx:id="col_crime_profile_id" prefWidth="141.0" text="Mã vụ việc" />
+                        <TableColumn fx:id="col_crime_type" prefWidth="181.0" text="Loại hình" />
+                        <TableColumn fx:id="col_date" prefWidth="265.0" text="Ngày thi hành án" />
+                        <TableColumn fx:id="col_criminal" minWidth="0.0" prefWidth="164.0" text="Số đối tượng" />
+                        <TableColumn fx:id="col_note" minWidth="0.0" prefWidth="518.0" text="Ghi chú" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>

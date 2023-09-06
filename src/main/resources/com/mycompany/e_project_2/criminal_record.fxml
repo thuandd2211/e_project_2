@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane>
+        <content>
+          <AnchorPane>
+               <children>
+                  <TitledPane animated="false" text="Hồ sơ phạm nhân" textFill="#8b9047">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="123.0" layoutX="9.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/prisoner/male.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="137.0" layoutY="25.0" prefHeight="31.0" prefWidth="41.0" text="Họ tên" />
+                              <TextField layoutX="201.0" layoutY="28.0" prefHeight="27.0" prefWidth="179.0" />
+                              <Label layoutX="414.0" layoutY="24.0" prefHeight="31.0" prefWidth="59.0" text="Giới tính" />
+                              <RadioButton layoutX="466.0" layoutY="29.0" mnemonicParsing="false" prefHeight="8.0" prefWidth="55.0" selected="true" text="Nam" />
+                              <RadioButton layoutX="531.0" layoutY="28.0" mnemonicParsing="false" prefHeight="8.0" prefWidth="55.0" text="Nữ" />
+                              <Label layoutX="137.0" layoutY="73.0" prefHeight="26.0" prefWidth="64.0" text="Ngày sinh" />
+                              <DatePicker layoutX="202.0" layoutY="74.0" />
+                              <Label layoutX="414.0" layoutY="73.0" prefHeight="26.0" prefWidth="64.0" text="Chiều cao" />
+                              <TextField layoutX="478.0" layoutY="73.0" prefHeight="27.0" prefWidth="57.0" promptText="cm" />
+                              <Label layoutX="555.0" layoutY="72.0" prefHeight="26.0" prefWidth="64.0" text="Cân nặng" />
+                              <TextField layoutX="620.0" layoutY="71.0" prefHeight="27.0" prefWidth="53.0" promptText="kg" />
+                              <Label layoutX="341.0" layoutY="169.0" prefHeight="31.0" prefWidth="41.0" text="CCCD" />
+                              <TextField layoutX="384.0" layoutY="169.0" prefHeight="27.0" prefWidth="179.0" />
+                              <Label layoutX="137.0" layoutY="120.0" prefHeight="31.0" prefWidth="64.0" text="Quê quán" />
+                              <TextField layoutX="201.0" layoutY="122.0" prefHeight="27.0" prefWidth="222.0" />
+                              <Label layoutX="446.0" layoutY="119.0" prefHeight="31.0" prefWidth="92.0" text="Nơi thường trú" />
+                              <TextField layoutX="543.0" layoutY="121.0" prefHeight="27.0" prefWidth="261.0" />
+                              <Label layoutX="137.0" layoutY="169.0" prefHeight="31.0" prefWidth="89.0" text="Mã phạm nhân" />
+                              <TextField layoutX="226.0" layoutY="171.0" prefHeight="27.0" prefWidth="90.0" />
+                              <Label layoutX="584.0" layoutY="167.0" prefHeight="31.0" prefWidth="74.0" text="Phòng giam" />
+                              <Label layoutX="137.0" layoutY="212.0" prefHeight="31.0" prefWidth="72.0" text="Hồ sơ vụ án" />
+                              <ComboBox layoutX="653.0" layoutY="170.0" prefWidth="150.0" />
+                              <ComboBox layoutX="222.0" layoutY="215.0" prefWidth="150.0" />
+                              <Label layoutX="431.0" layoutY="213.0" prefHeight="31.0" prefWidth="72.0" text="Tội danh" />
+                              <ComboBox layoutX="498.0" layoutY="215.0" prefWidth="150.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TitledPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button layoutX="636.0" layoutY="328.0" mnemonicParsing="false" prefHeight="35.0">
+         <graphic>
+            <Label prefHeight="22.0" prefWidth="56.0" text="Lưu">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </graphic>
+      </Button>
+      <Button layoutX="733.0" layoutY="328.0" mnemonicParsing="false" prefHeight="35.0">
+         <graphic>
+            <Label prefHeight="22.0" prefWidth="56.0" text="Xóa">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/close.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+         </graphic>
+      </Button>
+   </children>
+</Pane>

@@ -1,0 +1,30 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Aug 29, 2023, 8:22:41 PM
+    Author     : DELL
+*/
+
+.button{
+    -fx-background-color: #D1D0EE;
+    -fx-border-color: #D1D0EE;
+    -fx-border-radius: 0px;
+}
+.button:hover{
+    -fx-background-color: #ABCBF0;
+    
+}
+.nav{
+    -fx-border-color: #B2B9C0;
+    -fx-background-color: #D1D0EE;
+    -fx-border-style: solid;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+.body{
+    -fx-background-color: #D1D0EE;
+}
+.textSearch{
+    background-color: white;
+}
