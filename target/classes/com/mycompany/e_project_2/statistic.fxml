@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.e_project_2.statistic_Controller">
    <children>
       <AnchorPane prefHeight="95.0" prefWidth="558.0">
          <children>
@@ -20,31 +19,31 @@
                </font>
             </Label>
             <Label layoutX="39.0" layoutY="57.0" prefHeight="25.0" prefWidth="26.0" text="Từ" />
-            <DatePicker layoutX="68.0" layoutY="58.0" prefHeight="25.0" prefWidth="166.0" />
+            <DatePicker fx:id="txt_firstDate" layoutX="68.0" layoutY="58.0" prefHeight="25.0" prefWidth="166.0" />
             <Label layoutX="259.0" layoutY="57.0" prefHeight="25.0" prefWidth="26.0" text="Đến" />
-            <DatePicker layoutX="288.0" layoutY="58.0" prefHeight="25.0" prefWidth="166.0" />
-            <Button layoutX="493.0" layoutY="57.0" mnemonicParsing="false" text="Tìm kiếm" />
+            <DatePicker fx:id="txt_lastDate" layoutX="288.0" layoutY="58.0" prefHeight="25.0" prefWidth="166.0" />
+            <Button layoutX="493.0" layoutY="57.0" mnemonicParsing="false" onAction="#search" text="Tìm kiếm" />
          </children>
       </AnchorPane>
-      <TableView layoutY="95.0" prefHeight="400.0">
+      <TableView fx:id="filter_By_Crime_type" layoutY="95.0" prefHeight="400.0">
         <columns>
-          <TableColumn prefWidth="194.0" text="Loại hình" />
-            <TableColumn prefWidth="81.0" text="Số vụ việc" />
-          <TableColumn prefWidth="100.0" text="Số đối tượng" />
+          <TableColumn fx:id="col_crime_type" prefWidth="194.0" text="Loại hình" />
+            <TableColumn fx:id="col_crime_type_quantity" prefWidth="81.0" text="Số vụ việc" />
+          <TableColumn fx:id="col_crime_type_sus" prefWidth="100.0" text="Số đối tượng" />
         </columns>
       </TableView>
-      <TableView layoutX="411.0" layoutY="96.0" prefHeight="400.0">
+      <TableView fx:id="filter_By_Crime" layoutX="411.0" layoutY="96.0" prefHeight="400.0">
          <columns>
-            <TableColumn prefWidth="194.0" text="Tội danh" />
-            <TableColumn prefWidth="95.0" text="Số vụ việc" />
-            <TableColumn prefWidth="89.0" text="Số đối tượng" />
+            <TableColumn fx:id="col_crime" prefWidth="194.0" text="Tội danh" />
+            <TableColumn fx:id="col_crime_quantity" prefWidth="95.0" text="Số vụ việc" />
+            <TableColumn fx:id="col_crime_sus" prefWidth="89.0" text="Số đối tượng" />
          </columns>
       </TableView>
-      <TableView layoutX="823.0" layoutY="96.0" prefHeight="400.0">
+      <TableView fx:id="filter_Criminal" layoutX="823.0" layoutY="96.0" prefHeight="400.0">
          <columns>
-            <TableColumn prefWidth="92.0" text="Số người vào" />
-            <TableColumn prefWidth="85.0" text="Số người ra" />
-            <TableColumn prefWidth="120.0" text="Số phạm nhân" />
+            <TableColumn fx:id="col_criminal_in" prefWidth="92.0" text="Số người vào" />
+            <TableColumn fx:id="col_criminal_out" prefWidth="85.0" text="Số người ra" />
+            <TableColumn fx:id="col_criminal_quantity" prefWidth="120.0" text="Số phạm nhân" />
          </columns>
       </TableView>
    </children>

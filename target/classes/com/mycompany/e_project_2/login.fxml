@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.e_project_2.login_Controller">
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
@@ -19,17 +18,17 @@
                   <Image url="@../../../image/login.png" />
                </image>
             </ImageView>
-            <TextField layoutX="33.0" layoutY="126.0" prefHeight="49.0" prefWidth="333.0" promptText="Tài khoản">
+            <TextField fx:id="txt_username" layoutX="33.0" layoutY="126.0" prefHeight="49.0" prefWidth="333.0" promptText="Tài khoản">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <PasswordField layoutX="33.0" layoutY="215.0" prefHeight="49.0" prefWidth="333.0" promptText="Mật khẩu">
+            <PasswordField fx:id="txt_password" layoutX="33.0" layoutY="215.0" prefHeight="49.0" prefWidth="333.0" promptText="Mật khẩu">
                <font>
                   <Font size="18.0" />
                </font>
             </PasswordField>
-            <Button layoutX="33.0" layoutY="305.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="333.0" text="Đăng nhập">
+            <Button layoutX="33.0" layoutY="305.0" mnemonicParsing="false" onAction="#btn_Login" prefHeight="49.0" prefWidth="333.0" text="Đăng nhập">
                <font>
                   <Font size="18.0" />
                </font>

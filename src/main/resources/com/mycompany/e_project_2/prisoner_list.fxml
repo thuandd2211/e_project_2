@@ -1,34 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
+<BorderPane stylesheets="@../../../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.e_project_2.criminal_list_Controller">
+   <center>
       <ScrollPane>
          <content>
             <AnchorPane>
                <children>
-                  <TableView layoutX="-2.0" layoutY="-1.0" prefHeight="400.0" prefWidth="1172.0">
+                  <TableView fx:id="table_criminal" layoutY="-1.0" onMouseClicked="#getItem" prefHeight="600.0" prefWidth="700.0">
                      <columns>
-                        <TableColumn prefWidth="42.0" text="STT" />
-                        <TableColumn prefWidth="120.0" text="Mã phạm nhân" />
-                        <TableColumn prefWidth="91.0" text="Phòng giam" />
-                        <TableColumn prefWidth="137.0" text="CCCD" />
-                        <TableColumn prefWidth="180.0" text="Họ tên" />
-                        <TableColumn prefWidth="70.0" text="Giới tính" />
-                        <TableColumn prefWidth="97.0" text="Ngày sinh" />
-                        <TableColumn prefWidth="285.0" text="Quê quán" />
-                        <TableColumn prefWidth="73.0" text="Chiều cao" />
-                        <TableColumn prefWidth="68.0" text="Cân nặng" />
+                        <TableColumn fx:id="col_stt" prefWidth="42.0" text="STT" />
+                        <TableColumn fx:id="col_rollno" prefWidth="93.0" text="Mã phạm nhân" />
+                        <TableColumn fx:id="col_room" prefWidth="93.0" text="Phòng giam" />
+                        <TableColumn fx:id="col_identify" prefWidth="130.0" text="CCCD" />
+                        <TableColumn fx:id="col_fullname" prefWidth="142.0" styleClass="col" text="Họ tên" />
+                        <TableColumn fx:id="col_gender" prefWidth="69.0" text="Giới tính" />
+                        <TableColumn fx:id="col_dob" prefWidth="81.0" text="Ngày sinh" />
+                        <TableColumn fx:id="col_place" prefWidth="250.0" styleClass="col" text="Quê quán" />
+                        <TableColumn fx:id="col_height" prefWidth="73.0" text="Chiều cao" />
+                        <TableColumn fx:id="col_weight" prefWidth="68.0" text="Cân nặng" />
+                        <TableColumn fx:id="col_execution_date" prefWidth="100.0" text="Ngày vào tù" />
+                        <TableColumn fx:id="col_release_date" prefWidth="100.0" text="Ngày ra tù" />
+                        <TableColumn fx:id="col_status" prefWidth="100.0" text="Tình trạng" />
                      </columns>
                   </TableView>
                </children>
             </AnchorPane>
          </content>
       </ScrollPane>
-   </children>
-</Pane>
+   </center>
+   <right>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity">
+         <children>
+            <TitledPane fx:id="prisoner_form" animated="false" layoutX="8.0" prefWidth="500.0" text="Hồ sơ phạm nhân" textFill="#8b9047">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <Label layoutX="51.0" layoutY="27.0" prefHeight="31.0" prefWidth="41.0" text="Họ tên" />
+                        <TextField fx:id="txt_fullname" layoutX="115.0" layoutY="30.0" prefHeight="27.0" prefWidth="179.0" />
+                        <Label layoutX="50.0" layoutY="65.0" prefHeight="31.0" prefWidth="59.0" text="Giới tính" />
+                        <RadioButton fx:id="txt_male" layoutX="115.0" layoutY="70.0" mnemonicParsing="false" onAction="#getGender" prefHeight="8.0" prefWidth="55.0" text="Nam">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="txt_female" layoutX="180.0" layoutY="69.0" mnemonicParsing="false" onAction="#getGender" prefHeight="8.0" prefWidth="55.0" text="Nữ" toggleGroup="$gender" />
+                        <Label layoutX="49.0" layoutY="148.0" prefHeight="26.0" prefWidth="64.0" text="Ngày sinh" />
+                        <DatePicker fx:id="txt_dob" layoutX="114.0" layoutY="149.0" />
+                        <Label layoutX="48.0" layoutY="104.0" prefHeight="26.0" prefWidth="64.0" text="Chiều cao" />
+                        <TextField fx:id="txt_height" layoutX="112.0" layoutY="104.0" prefHeight="27.0" prefWidth="57.0" promptText="cm" />
+                        <Label layoutX="189.0" layoutY="103.0" prefHeight="26.0" prefWidth="64.0" text="Cân nặng" />
+                        <TextField fx:id="txt_weight" layoutX="254.0" layoutY="102.0" prefHeight="27.0" prefWidth="53.0" promptText="kg" />
+                        <Label layoutX="46.0" layoutY="340.0" prefHeight="31.0" prefWidth="41.0" text="CCCD" />
+                        <TextField fx:id="txt_identify" layoutX="89.0" layoutY="340.0" prefHeight="27.0" prefWidth="179.0" />
+                        <Label layoutX="50.0" layoutY="197.0" prefHeight="31.0" prefWidth="64.0" text="Quê quán" />
+                        <TextField fx:id="txt_place" layoutX="115.0" layoutY="199.0" prefHeight="27.0" prefWidth="332.0" />
+                        <Label layoutX="51.0" layoutY="245.0" prefHeight="31.0" prefWidth="92.0" text="Nơi thường trú" />
+                        <TextField fx:id="txt_address" layoutX="148.0" layoutY="247.0" prefHeight="27.0" prefWidth="299.0" />
+                        <Label layoutX="51.0" layoutY="292.0" prefHeight="31.0" prefWidth="89.0" text="Mã phạm nhân" />
+                        <TextField fx:id="txt_rollno" layoutX="140.0" layoutY="294.0" prefHeight="27.0" prefWidth="105.0" />
+                        <Label layoutX="48.0" layoutY="385.0" prefHeight="31.0" prefWidth="74.0" text="Phòng giam" />
+                        <ComboBox fx:id="txt_room" layoutX="117.0" layoutY="388.0" prefWidth="150.0" />
+                        <Button layoutX="45.0" layoutY="490.0" mnemonicParsing="false" onAction="#saveCriminal" prefHeight="35.0">
+                           <graphic>
+                              <Label prefHeight="22.0" prefWidth="56.0" text="Lưu">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../image/save.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="170.0" layoutY="490.0" mnemonicParsing="false" onAction="#resetCriminal" prefHeight="35.0" prefWidth="95.0">
+                           <graphic>
+                              <Label prefHeight="22.0" prefWidth="77.0" text="Làm mới">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../image/close.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                           </graphic>
+                        </Button>
+                        <Label layoutX="46.0" layoutY="437.0" prefHeight="26.0" prefWidth="74.0" text="Ngày vào tù" />
+                        <DatePicker fx:id="txt_execution_date" layoutX="124.0" layoutY="438.0" prefHeight="27.0" prefWidth="144.0" />
+                        <Label layoutX="285.0" layoutY="437.0" prefHeight="26.0" prefWidth="74.0" text="Ngày ra tù" />
+                        <DatePicker fx:id="txt_release_date" layoutX="361.0" layoutY="438.0" prefHeight="27.0" prefWidth="144.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TitledPane>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>

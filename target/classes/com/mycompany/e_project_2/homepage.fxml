@@ -10,170 +10,174 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="body" stylesheets="@../../../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.e_project_2.homePage">
-   <children>
-      <AnchorPane prefHeight="45.0" prefWidth="1367.0" styleClass="nav" stylesheets="@../../../css/style.css" AnchorPane.leftAnchor="0.0">
+<BorderPane fx:id="mainPane" stylesheets="@../../../css/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.e_project_2.homePage">
+   <top>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="body" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutY="2.0" mnemonicParsing="false" onAction="#crimeList" prefHeight="38.0" prefWidth="291.0">
-               <graphic>
-                  <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="275.0" text="PHẦN MỀM QUẢN LÍ TỘI PHẠM" textFill="#2c7246">
+            <AnchorPane prefHeight="45.0" prefWidth="1367.0" AnchorPane.leftAnchor="0.0">
+               <children>
+                  <Button layoutY="2.0" mnemonicParsing="false" onAction="#crimeList" prefHeight="38.0" prefWidth="291.0">
                      <graphic>
-                        <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/crime_management_logo.png" />
-                           </image>
-                        </ImageView>
+                        <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="275.0" text="PHẦN MỀM QUẢN LÍ TỘI PHẠM" textFill="#2c7246">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/crime_management_logo.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Arial Bold" size="15.0" />
+                           </font>
+                        </Label>
                      </graphic>
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                  </Label>
-               </graphic>
-            </Button>
-            <Button layoutX="1261.0" layoutY="6.0" mnemonicParsing="false" onAction="#prison_info" prefHeight="33.0" prefWidth="105.0" AnchorPane.rightAnchor="1.0">
-               <graphic>
-                  <Label prefHeight="31.0" prefWidth="91.0" text="Thông tin">
+                  </Button>
+                  <Button layoutX="1259.0" layoutY="5.0" mnemonicParsing="false" onAction="#log_out" prefHeight="33.0" prefWidth="105.0" AnchorPane.rightAnchor="3.0">
                      <graphic>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/infomation.png" />
-                           </image>
-                        </ImageView>
+                        <Label prefHeight="31.0" prefWidth="91.0" text="Đăng xuất">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/logout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
                      </graphic>
-                  </Label>
-               </graphic>
-            </Button>
-            <Button layoutX="1107.0" layoutY="6.0" mnemonicParsing="false" onAction="#statistic" prefHeight="33.0" prefWidth="148.0">
-               <graphic>
-                  <Label prefHeight="23.0" prefWidth="140.0" text="Báo cáo thống kê">
+                  </Button>
+                  <Button layoutX="973.0" layoutY="5.0" mnemonicParsing="false" onAction="#statistic" prefHeight="33.0" prefWidth="148.0">
                      <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/report.png" />
-                           </image>
-                        </ImageView>
+                        <Label prefHeight="23.0" prefWidth="140.0" text="Báo cáo thống kê">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/report.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
                      </graphic>
-                  </Label>
-               </graphic>
-            </Button>
-            <Button layoutX="971.0" layoutY="6.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="129.0">
-               <graphic>
-                  <Label prefHeight="22.0" prefWidth="113.0" text="Quản lí đơn vị">
+                  </Button>
+                  <Button layoutX="818.0" layoutY="5.0" mnemonicParsing="false" onAction="#prisonList" prefHeight="33.0" prefWidth="148.0">
                      <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/green.png" />
-                           </image>
-                        </ImageView>
+                        <Label prefHeight="22.0" prefWidth="129.0" text="Quản lí tội phạm">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/security.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
                      </graphic>
-                  </Label>
-               </graphic>
-            </Button>
-            <Button layoutX="818.0" layoutY="5.0" mnemonicParsing="false" onAction="#prisonList" prefHeight="33.0" prefWidth="148.0">
-               <graphic>
-                  <Label prefHeight="22.0" prefWidth="129.0" text="Quản lí tội phạm">
+                  </Button>
+                  <Button layoutX="1128.0" layoutY="5.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="124.0">
                      <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/security.png" />
-                           </image>
-                        </ImageView>
+                        <Label fx:id="user" prefHeight="22.0" prefWidth="110.0" text="Thông tin">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/prisoner/male.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
                      </graphic>
-                  </Label>
-               </graphic>
-            </Button>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="1.0" layoutY="45.0" prefHeight="40.0" prefWidth="1365.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="45.0">
+               <children>
+                  <Button fx:id="themvuviec_btn" layoutX="3.0" mnemonicParsing="false" onAction="#crime_record" prefHeight="33.0" prefWidth="129.0" AnchorPane.topAnchor="5.0">
+                     <graphic>
+                        <Label prefHeight="22.0" prefWidth="113.0" text="Thêm vụ việc">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="suavuviec_btn" layoutX="140.0" mnemonicParsing="false" onAction="#updateItem" prefHeight="33.0" prefWidth="115.0" visible="false" AnchorPane.topAnchor="5.0">
+                     <graphic>
+                        <Label prefHeight="22.0" prefWidth="99.0" text="Sửa vụ việc">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="264.0" mnemonicParsing="false" onAction="#deleteItem" prefHeight="33.0" visible="false" AnchorPane.topAnchor="5.0" fx:id="xoavuviec_btn">
+                     <graphic>
+                        <Label prefHeight="22.0" prefWidth="99.0" text="Xóa vụ việc">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/delete.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </graphic>
+                  </Button>
+                  <TextField fx:id="txt_search" layoutX="1138.0" layoutY="5.0" prefHeight="26.0" prefWidth="216.0" promptText="Tìm kiếm phạm nhân" styleClass="textSearch" AnchorPane.topAnchor="10.0" />
+                  <ImageView fitHeight="19.0" fitWidth="20.0" layoutX="1114.0" layoutY="12.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="12.0">
+                     <image>
+                        <Image url="@../../../image/search.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="suatoipham_btn" layoutX="140.0" layoutY="4.0" mnemonicParsing="false" onAction="#update_criminal" prefHeight="33.0" prefWidth="129.0" visible="false">
+                     <graphic>
+                        <Label prefHeight="22.0" prefWidth="113.0" text="Sửa tội phạm">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="277.0" layoutY="4.0" mnemonicParsing="false" onAction="#delete_criminal" prefHeight="33.0" prefWidth="122.0" visible="false" fx:id="xoatoipham_btn">
+                     <graphic>
+                        <Label prefHeight="22.0" prefWidth="109.0" text="Xóa tội phạm">
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/delete.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="themtoipham_btn" layoutX="387.0" layoutY="4.0" mnemonicParsing="false" onAction="#add_criminal" prefHeight="33.0" prefWidth="129.0" visible="false">
+                     <graphic>
+                        <Label prefHeight="18.0" prefWidth="117.0" text="Thêm tội phạm">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="1.0" layoutY="45.0" prefHeight="40.0" prefWidth="1365.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="45.0">
-         <children>
-            <Button fx:id="themvuviec_btn" layoutX="3.0" mnemonicParsing="false" onAction="#crime_record" prefHeight="33.0" prefWidth="129.0" AnchorPane.topAnchor="5.0">
-               <graphic>
-                  <Label prefHeight="22.0" prefWidth="113.0" text="Thêm vụ việc">
-                     <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/add.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </graphic>
-            </Button>
-            <Button fx:id="suavuviec_btn" layoutX="140.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="115.0" visible="false" AnchorPane.topAnchor="5.0">
-               <graphic>
-                  <Label prefHeight="22.0" prefWidth="99.0" text="Sửa vụ việc">
-                     <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/update.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </graphic>
-            </Button>
-            <Button layoutX="264.0" mnemonicParsing="false" prefHeight="33.0" visible="false" AnchorPane.topAnchor="5.0" fx:id="xoavuviec_btn">
-               <graphic>
-                  <Label prefHeight="22.0" prefWidth="99.0" text="Xóa vụ việc">
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/delete.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </graphic>
-            </Button>
-            <TextField layoutX="1138.0" layoutY="5.0" prefHeight="26.0" prefWidth="216.0" promptText="Tìm kiếm" styleClass="textSearch" AnchorPane.topAnchor="10.0" />
-            <ImageView fitHeight="19.0" fitWidth="20.0" layoutX="1114.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="12.0">
-               <image>
-                  <Image url="@../../../image/search.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="suatoipham_btn" layoutX="140.0" layoutY="4.0" mnemonicParsing="false" onAction="#crime_record" prefHeight="33.0" prefWidth="129.0" visible="false">
-               <graphic>
-                  <Label prefHeight="22.0" prefWidth="113.0" text="Sửa tội phạm">
-                     <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/update.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </graphic>
-            </Button>
-            <Button layoutX="277.0" layoutY="4.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="122.0" visible="false" fx:id="xoatoipham_btn">
-               <graphic>
-                  <Label prefHeight="22.0" prefWidth="109.0" text="Xóa tội phạm">
-                     <graphic>
-                        <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/delete.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </graphic>
-            </Button>
-            <Button fx:id="themtoipham_btn" layoutX="387.0" layoutY="4.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="129.0" visible="false">
-               <graphic>
-                  <Label prefHeight="18.0" prefWidth="117.0" text="Thêm tội phạm">
-                     <graphic>
-                        <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../image/add.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-               </graphic>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane AnchorPane.topAnchor="85.0" />
-      <BorderPane fx:id="mainPane" prefHeight="300.0" prefWidth="1165.0" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="85.0" />
-      <TreeView fx:id="treeView" layoutX="1.0" layoutY="85.0" onContextMenuRequested="#selectItem" onMouseClicked="#selectItem" prefHeight="200.0" prefWidth="200.0" />
-   </children>
-</AnchorPane>
+   </top>
+   <left>
+      <TreeView fx:id="treeView" onContextMenuRequested="#selectItem" onMouseClicked="#selectItem" prefWidth="150.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

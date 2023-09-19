@@ -12,18 +12,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.e_project_2.crime_record_Controller">
    <children>
-      <TitledPane animated="false" layoutY="-1.0" text="Hồ sơ vụ án" textFill="#8b9047">
+      <TitledPane animated="false" layoutY="-1.0" prefWidth="500.0" text="Hồ sơ vụ án" textFill="#8b9047">
          <content>
             <AnchorPane>
                <children>
-                  <Label layoutX="31.0" layoutY="35.0" prefHeight="31.0" prefWidth="58.0" text="Loại hình" />
-                  <ComboBox layoutX="106.0" layoutY="37.0" prefHeight="27.0" prefWidth="164.0" />
-                  <Label layoutX="31.0" layoutY="89.0" prefHeight="31.0" prefWidth="56.0" text="Ghi chú" />
-                  <Label layoutX="317.0" layoutY="38.0" prefHeight="26.0" prefWidth="102.0" text="Ngày thi hành án" />
-                  <DatePicker layoutX="432.0" layoutY="37.0" />
-                  <TextArea layoutX="106.0" layoutY="89.0" prefHeight="200.0" prefWidth="517.0" />
+                  <Label layoutX="11.0" layoutY="35.0" prefHeight="31.0" prefWidth="58.0" text="Loại hình" />
+                  <ComboBox fx:id="txt_crime_type" layoutX="74.0" layoutY="37.0" prefHeight="27.0" prefWidth="164.0" />
+                  <Label layoutX="9.0" layoutY="126.0" prefHeight="31.0" prefWidth="56.0" text="Ghi chú" />
+                  <Label layoutX="8.0" layoutY="80.0" prefHeight="26.0" prefWidth="102.0" text="Ngày thi hành án" />
+                  <DatePicker fx:id="txt_date" layoutX="118.0" layoutY="79.0" />
+                  <TextArea fx:id="txt_note" layoutX="84.0" layoutY="126.0" prefHeight="112.0" prefWidth="335.0" />
                </children>
             </AnchorPane>
          </content>
@@ -31,7 +31,7 @@
             <Font size="16.0" />
          </font>
       </TitledPane>
-      <Button layoutX="447.0" layoutY="362.0" mnemonicParsing="false" prefHeight="35.0">
+      <Button layoutX="168.0" layoutY="314.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="35.0">
          <graphic>
             <Label prefHeight="22.0" prefWidth="56.0" text="Lưu">
                <graphic>
@@ -44,9 +44,9 @@
             </Label>
          </graphic>
       </Button>
-      <Button layoutX="544.0" layoutY="362.0" mnemonicParsing="false" prefHeight="35.0">
+      <Button layoutX="265.0" layoutY="314.0" mnemonicParsing="false" onAction="#resetItem" prefHeight="35.0" prefWidth="92.0">
          <graphic>
-            <Label prefHeight="22.0" prefWidth="56.0" text="Xóa">
+            <Label prefHeight="22.0" prefWidth="77.0" text="Làm mới">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>

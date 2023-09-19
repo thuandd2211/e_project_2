@@ -10,7 +10,7 @@ package CRUD;
  */
 public class Crime_profile {
     int id;
-    String crime_type;
+    int crime_type;
     int number;
     String date;
     String note;
@@ -18,7 +18,7 @@ public class Crime_profile {
     public Crime_profile() {
     }
 
-    public Crime_profile(int id, String crime_type, int number, String date, String note) {
+    public Crime_profile(int id, int crime_type, int number, String date, String note) {
         this.id = id;
         this.crime_type = crime_type;
         this.number = number;
@@ -34,11 +34,11 @@ public class Crime_profile {
         this.id = id;
     }
 
-    public String getCrime_type() {
+    public int getCrime_type() {
         return crime_type;
     }
 
-    public void setCrime_type(String crime_type) {
+    public void setCrime_type(int crime_type) {
         this.crime_type = crime_type;
     }
 

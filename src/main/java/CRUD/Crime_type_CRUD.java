@@ -39,4 +39,49 @@ public class Crime_type_CRUD extends BaseCRUD {
         return dataList;
     }
 
+    public static List<Crime_type> FindByID(int id) {
+        List<Crime_type> dataList = new ArrayList<>();
+        connect();
+        String sql = "select * from crime_type where id = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Crime_type c = new Crime_type(
+                        resultSet.getInt("id"),
+                        resultSet.getString("crime")
+                );
+                dataList.add(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Crime_type_CRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        disconnect();
+        return dataList;
+    }
+
+        public static List<Crime_type> FindByName(String crime) {
+        List<Crime_type> dataList = new ArrayList<>();
+        connect();
+        String sql = "select * from crime_type where crime = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, crime);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Crime_type c = new Crime_type(
+                        resultSet.getInt("id"),
+                        resultSet.getString("crime")
+                );
+                dataList.add(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Crime_type_CRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        disconnect();
+        return dataList;
+    }
 }
