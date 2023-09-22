@@ -6,6 +6,7 @@ import CRUD.Crime_profile_CRUD;
 import CRUD.Crime_type;
 import CRUD.Has_crime;
 import CRUD.Prisoner;
+import CRUD.Suspect;
 import static com.mycompany.e_project_2.crime_record_Controller.id;
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +19,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -27,6 +29,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -41,6 +44,8 @@ public class crime_list_Controller implements Initializable {
     static Crime_profile crime = null;
     static Prisoner prisoner = null;
     static int id;
+    static Has_crime suspect = null;
+    private static ObservableList<CRUD.Has_crime> data_suspect;
     private static ObservableList<CRUD.Crime_profile> data;
     private static ObservableList<CRUD.Crime_type> data_crime_type;
     private static ObservableList<CRUD.Crime> data_crime;
@@ -48,6 +53,8 @@ public class crime_list_Controller implements Initializable {
     static ComboBox txt_crime_type_static;
     static DatePicker txt_date_static;
     static TextArea txt_note_static;
+    static ComboBox txt_rollNo_static;
+    static ComboBox txt_crime_static;
     @FXML
     private ResourceBundle resources;
 
@@ -76,6 +83,18 @@ public class crime_list_Controller implements Initializable {
     private TableView<Crime_profile> table_crime;
 
     @FXML
+    private TableView<Has_crime> tbl_suspect;
+
+    @FXML
+    private TableColumn<Has_crime, String> col_sus_crime_profile;
+
+    @FXML
+    private TableColumn<Has_crime, String> col_sus_crime;
+
+    @FXML
+    private TableColumn<Has_crime, String> col_sus_prisoner;
+
+    @FXML
     private BorderPane mainPane;
 
     @FXML
@@ -84,6 +103,8 @@ public class crime_list_Controller implements Initializable {
     static TitledPane crime_form_static;
 
     static TitledPane criminal_form_static;
+
+    static ScrollPane suspect_pane_static;
 
     @FXML
     private ComboBox<String> txt_crime_type;
@@ -107,12 +128,28 @@ public class crime_list_Controller implements Initializable {
     private ComboBox<String> txt_crime;
 
     @FXML
+    private ScrollPane suspect_pane;
+
+    @FXML
     void getItem(MouseEvent event) {
         if (table_crime.getSelectionModel().getSelectedItem() != null) {
             homePage.suavuviec_btn_static.setVisible(true);
             homePage.xoavuviec_btn_static.setVisible(true);
             homePage.themtoipham_btn_static.setVisible(true);
             crime = table_crime.getSelectionModel().getSelectedItem();
+            suspect_pane.setVisible(true);
+            inittialize_sus();
+            tbl_suspect.setVisible(true);
+
+        }
+    }
+
+    @FXML
+    void getSuspect(MouseEvent event) {
+        if (tbl_suspect.getSelectionModel().getSelectedItem() != null) {
+            suspect = tbl_suspect.getSelectionModel().getSelectedItem();
+            homePage.suatoipham_hoso_btn_static.setVisible(true);
+            homePage.xoatoipham_hoso_btn_static.setVisible(true);
         }
     }
 
@@ -197,7 +234,38 @@ public class crime_list_Controller implements Initializable {
         boolean isFlag = false;
         List<Has_crime> h = new ArrayList<>();
         h = CRUD.Has_crime_CRUD.getList_by_crime_profile_id(crime.getId());
-        if (crime != null && validate_criminal()) {
+        if (suspect != null && validate_criminal()) {
+            CRUD.Has_crime has_crime = new Has_crime(
+                    suspect.getId(),
+                    CRUD.Crime_CRUD.findByCrime(txt_crime.getValue()).get(0).getId(),
+                    CRUD.Prisoner_CRUD.findByRollno(txt_criminal.getValue()).get(0).getId(),
+                    crime.getId());
+            List<Has_crime> h_check = CRUD.Has_crime_CRUD.getList_by_crime_profile_id_by_prisoner_id(crime.getId(), suspect.getPrisoner_id());
+            for (Has_crime h1 : h) {
+                if (h1.getPrisoner_id() == has_crime.getPrisoner_id()) {
+                    isFlag = true;
+                    if (h1.getCrime_id() == has_crime.getCrime_id()) {
+                        isCheck = true;
+                        break;
+                    }
+                }
+            }
+            if (!isFlag) {
+                CRUD.Has_crime_CRUD.updateByCrime_profile_id(has_crime);
+                if (h_check.size() >= 2) {
+                    CRUD.Crime_profile_CRUD.update_numberOfCriminal(crime);
+                }
+            } else {
+                if (!isCheck) {
+                    CRUD.Has_crime_CRUD.updateByCrime_profile_id(has_crime);
+                }
+            }
+            App.setRoot("homePage");
+            crime = null;
+            suspect = null;
+            has_crime = null;
+            resetCriminal(event);
+        } else if (crime != null && validate_criminal()) {
             CRUD.Has_crime has_crime = new Has_crime(
                     0,
                     CRUD.Crime_CRUD.findByCrime(txt_crime.getValue()).get(0).getId(),
@@ -209,7 +277,7 @@ public class crime_list_Controller implements Initializable {
                     if (h1.getCrime_id() == has_crime.getCrime_id()) {
                         isCheck = true;
                         break;
-                    }   
+                    }
                 }
             }
             if (!isFlag) {
@@ -232,6 +300,32 @@ public class crime_list_Controller implements Initializable {
     void resetCriminal(ActionEvent event) {
         txt_crime.setValue(null);
         txt_criminal.setValue(null);
+    }
+
+    void inittialize_sus() {
+
+        data_suspect = FXCollections.observableArrayList(CRUD.Has_crime_CRUD.getList_by_crime_profile_id(crime.getId()));
+
+        col_sus_crime_profile.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Has_crime, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Has_crime, String> p) {
+                return new SimpleStringProperty(p.getValue().getCrime_profile_id() + "");
+            }
+        });
+        col_sus_prisoner.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Has_crime, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Has_crime, String> p) {
+                return new SimpleStringProperty(CRUD.Prisoner_CRUD.findByID(p.getValue().getPrisoner_id()).get(0).getRoll_no() + "");
+            }
+        });
+        col_sus_crime.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Has_crime, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Has_crime, String> p) {
+                return new SimpleStringProperty(CRUD.Crime_CRUD.findByID(p.getValue().getCrime_id()).get(0).getCrime() + "");
+            }
+        });
+        tbl_suspect.setItems(data_suspect);
+
     }
 
     @FXML
@@ -311,7 +405,6 @@ public class crime_list_Controller implements Initializable {
             txt_date.setValue(LocalDate.of(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2])));
             txt_note.setText(dataList.get(0).getNote());
         }
-
     }
 
     @Override
@@ -320,6 +413,7 @@ public class crime_list_Controller implements Initializable {
         themPhamNhan.setVisible(false);
         crime_form_static = hoSoVuAn;
         criminal_form_static = themPhamNhan;
+        suspect_pane_static = suspect_pane;
         crime_form_static.setVisible(false);
         criminal_form_static.setVisible(false);
 
@@ -328,6 +422,8 @@ public class crime_list_Controller implements Initializable {
         txt_crime_type_static = txt_crime_type;
         txt_date_static = txt_date;
         txt_note_static = txt_note;
+        txt_rollNo_static = txt_criminal;
+        txt_crime_static = txt_crime;
 
     }
 

@@ -172,6 +172,32 @@
                         </Label>
                      </graphic>
                   </Button>
+                  <Button fx:id="suatoipham_hoso_btn" layoutX="523.0" layoutY="3.0" mnemonicParsing="false" onAction="#update_suspect" prefHeight="33.0" prefWidth="129.0" visible="false">
+                     <graphic>
+                        <Label prefHeight="18.0" prefWidth="117.0" text="Sửa tội phạm">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/update.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="661.0" layoutY="3.0" mnemonicParsing="false" onAction="#delete_suspect" prefHeight="33.0" prefWidth="129.0" visible="false" fx:id="xoatoipham_hoso_btn">
+                     <graphic>
+                        <Label prefHeight="18.0" prefWidth="117.0" text="Xóa tội phạm">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../image/delete.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

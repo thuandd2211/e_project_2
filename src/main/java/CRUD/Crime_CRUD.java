@@ -58,5 +58,26 @@ public class Crime_CRUD extends BaseCRUD {
         disconnect();
         return dataList;
     }
+    
+    public static List<Crime> findByID(int id) {
+        List<Crime> dataList = new ArrayList<>();
+        connect();
+        String sql = "select * from crime where id = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Crime c = new Crime(
+                        resultSet.getInt("id"),
+                        resultSet.getString("crime_name"));
+                dataList.add(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Crime_CRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+        return dataList;
+    }
 
 }

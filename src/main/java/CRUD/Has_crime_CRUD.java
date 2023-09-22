@@ -62,6 +62,30 @@ public class Has_crime_CRUD extends BaseCRUD {
         return dataList;
     }
 
+    public static List<Has_crime> getList_by_crime_profile_id_by_prisoner_id(int crime_profile_id, int prisoner_id) {
+        List<Has_crime> dataList = new ArrayList<>();
+        connect();
+        String sql = "select * from has_crime where crime_profile_id = ? and prisoner_id = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, crime_profile_id);
+            statement.setInt(2, prisoner_id);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Has_crime h = new Has_crime(
+                        resultSet.getInt("id"),
+                        resultSet.getInt("crime_id"),
+                        resultSet.getInt("prisoner_id"),
+                        resultSet.getInt("crime_profile_id"));
+                dataList.add(h);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Has_crime_CRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+        return dataList;
+    }
+
     public static List<Has_crime> getList_by_prisoner_id(int id) {
         List<Has_crime> dataList = new ArrayList<>();
         connect();
@@ -150,5 +174,22 @@ public class Has_crime_CRUD extends BaseCRUD {
 
         disconnect();
     }
-
+    
+    public static void updateByCrime_profile_id(Has_crime h){
+        connect();
+        String sql = "update has_crime set crime_id = ?, crime_profile_id = ?, prisoner_id = ? where id = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, h.getCrime_id());
+            statement.setInt(2, h.getCrime_profile_id());
+            statement.setInt(3, h.prisoner_id);
+            statement.setInt(4, h.getId());
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(Has_crime_CRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        disconnect();
+    }
+    
+    
 }

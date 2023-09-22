@@ -386,23 +386,7 @@ public class criminal_list_Controller implements Initializable {
         } else {
             getTable(prisoner_List);
         }
-//        for (Prisoner prisoner : prisoner_List) {
-//            for (Identify identify : identify_list) {
-//                if (prisoner.getIdentify_id() == identify.getId()) {
-//                    tbl_prisoner.setIdentify(identify);
-//                    break;
-//                }
-//            }
-//            for (room room : data_room) {
-//                if (prisoner.getRoom_id() == room.getId()) {
-//                    tbl_prisoner.setRoom(room);
-//                    break;
-//                }
-//            }
-//            tbl_prisoner.setPrisoner(prisoner);
-//            data.add(tbl_prisoner);
-//            tbl_prisoner = new Prisoner_Table();
-//        }
+
 
         tbl_prisoner = null;
         for (room room_data : data_room) {
@@ -496,6 +480,8 @@ public class criminal_list_Controller implements Initializable {
         isFlag = true;
         homePage.suavuviec_btn_static.setVisible(false);
         homePage.xoavuviec_btn_static.setVisible(false);
+        homePage.suatoipham_hoso_btn_static.setVisible(false);
+        homePage.xoatoipham_hoso_btn_static.setVisible(false);
         prisoner_form.setVisible(false);
         prisoner_form_static = prisoner_form;
         prisoner_form_static.setVisible(false);

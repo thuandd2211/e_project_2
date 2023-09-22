@@ -8,6 +8,8 @@ CRUD\Crime.class
 com\mycompany\e_project_2\criminal_list_Controller$6.class
 com\mycompany\e_project_2\crime_list_Controller$5.class
 com\mycompany\e_project_2\statistic_Controller$7.class
+CRUD\Suspect.class
+com\mycompany\e_project_2\crime_list_Controller$8.class
 CRUD\Has_crime.class
 com\mycompany\e_project_2\homePage.class
 com\mycompany\e_project_2\statistic_Controller$3.class
@@ -23,6 +25,7 @@ com\mycompany\e_project_2\crime_list_Controller$4.class
 CRUD\statistic_Crime.class
 com\mycompany\e_project_2\criminal_list_Controller$13.class
 CRUD\Crime_CRUD.class
+com\mycompany\e_project_2\crime_list_Controller$7.class
 CRUD\Crime_profile.class
 com\mycompany\e_project_2\criminal_list_Controller$4.class
 CRUD\room_CRUD.class
@@ -48,6 +51,7 @@ com\mycompany\e_project_2\statistic_Controller$8.class
 com\mycompany\e_project_2\statistic_Controller$5.class
 com\mycompany\e_project_2\criminal_list_Controller$2.class
 com\mycompany\e_project_2\login_Controller.class
+com\mycompany\e_project_2\crime_list_Controller$9.class
 com\mycompany\e_project_2\criminal_list_Controller.class
 CRUD\Crime_type_CRUD.class
 com\mycompany\e_project_2\statistic_Controller$1.class

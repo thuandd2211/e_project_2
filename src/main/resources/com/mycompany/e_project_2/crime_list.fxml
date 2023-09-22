@@ -49,8 +49,8 @@
                         <Label layoutX="9.0" layoutY="126.0" prefHeight="31.0" prefWidth="56.0" text="Ghi chú" />
                         <Label layoutX="8.0" layoutY="80.0" prefHeight="26.0" prefWidth="102.0" text="Ngày thi hành án" />
                         <DatePicker fx:id="txt_date" layoutX="118.0" layoutY="79.0" />
-                        <TextArea fx:id="txt_note" layoutX="84.0" layoutY="126.0" prefHeight="112.0" prefWidth="335.0" />
-                        <Button layoutX="180.0" layoutY="260.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="35.0">
+                        <TextArea fx:id="txt_note" layoutX="84.0" layoutY="126.0" prefHeight="63.0" prefWidth="335.0" />
+                        <Button layoutX="135.0" layoutY="206.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="35.0">
                            <graphic>
                               <Label prefHeight="22.0" prefWidth="56.0" text="Lưu">
                                  <graphic>
@@ -63,7 +63,7 @@
                               </Label>
                            </graphic>
                         </Button>
-                        <Button layoutX="289.0" layoutY="260.0" mnemonicParsing="false" onAction="#resetItem" prefHeight="35.0" prefWidth="92.0">
+                        <Button layoutX="244.0" layoutY="206.0" mnemonicParsing="false" onAction="#resetItem" prefHeight="35.0" prefWidth="92.0">
                            <graphic>
                               <Label prefHeight="22.0" prefWidth="77.0" text="Làm mới">
                                  <graphic>
@@ -124,6 +124,17 @@
                   <Font size="16.0" />
                </font>
             </TitledPane>
+            <ScrollPane fx:id="suspect_pane" layoutY="313.0" visible="false">
+               <content>
+                  <TableView fx:id="tbl_suspect" onMouseClicked="#getSuspect" prefHeight="200.0" prefWidth="487.0" visible="false">
+                    <columns>
+                      <TableColumn fx:id="col_sus_crime_profile" prefWidth="146.0" text="Mã vụ án" />
+                      <TableColumn fx:id="col_sus_prisoner" minWidth="0.0" prefWidth="172.0" text="Mã phạm nhân" />
+                        <TableColumn fx:id="col_sus_crime" prefWidth="172.0" text="Tội danh" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
          </children>
       </Pane>
    </right>

@@ -35,6 +35,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -58,6 +59,8 @@ public class homePage implements Initializable {
     static Button suatoipham_btn_static;
     static Button xoatoipham_btn_static;
     static Button themtoipham_btn_static;
+    static Button suatoipham_hoso_btn_static;
+    static Button xoatoipham_hoso_btn_static;
     ObservableList<Prisoner> prisonerList;
     static String txt_search_static;
 
@@ -69,6 +72,12 @@ public class homePage implements Initializable {
 
     @FXML
     private BorderPane sidePane;
+
+    @FXML
+    private Button suatoipham_hoso_btn;
+
+    @FXML
+    private Button xoatoipham_hoso_btn;
 
     @FXML
     private Button suatoipham_btn;
@@ -90,7 +99,7 @@ public class homePage implements Initializable {
 
     @FXML
     private Button xoavuviec_btn;
-    
+
     @FXML
     private Label user;
 
@@ -101,6 +110,8 @@ public class homePage implements Initializable {
 
     @FXML
     void crime_record(ActionEvent event) {
+        Pane pane = getPage("crime_list");
+        mainPane.setCenter(pane);
         crime_list_Controller.criminal_form_static.setVisible(false);
         crime_list_Controller.crime_form_static.setVisible(true);
     }
@@ -129,10 +140,9 @@ public class homePage implements Initializable {
             crime_list_Controller.crime_form_static.setVisible(false);
             crime_list_Controller.criminal_form_static.setVisible(true);
         }
-        if (criminal_list_Controller.isFlag == true ) {
+        if (criminal_list_Controller.isFlag == true) {
             criminal_list_Controller.prisoner_form_static.setVisible(true);
         }
-        
 
     }
 
@@ -234,6 +244,41 @@ public class homePage implements Initializable {
     }
 
     @FXML
+    void update_suspect(ActionEvent event) {
+        crime_list_Controller.crime_form_static.setVisible(false);
+        crime_list_Controller.suspect_pane_static.setVisible(true);
+        crime_list_Controller.criminal_form_static.setVisible(true);
+        crime_list_Controller.txt_rollNo_static.setValue(CRUD.Prisoner_CRUD.findByID(crime_list_Controller.suspect.getPrisoner_id()).get(0).getRoll_no());
+        crime_list_Controller.txt_crime_static.setValue(CRUD.Crime_CRUD.findByID(crime_list_Controller.suspect.getCrime_id()).get(0).getCrime());
+    }
+
+    @FXML
+    void delete_suspect(ActionEvent event) throws IOException {
+        if (crime_list_Controller.crime != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Xóa tội phạm");
+            alert.setContentText("Bạn muốn xóa tội phạm?");
+            Optional<ButtonType> option = alert.showAndWait();
+            if (option.get() == null) {
+
+            } else if (option.get() == ButtonType.OK) {
+                List<Has_crime> dataList = new ArrayList<>();
+                dataList = CRUD.Has_crime_CRUD.getList_by_crime_profile_id_by_prisoner_id(crime_list_Controller.crime.getId(), crime_list_Controller.suspect.getPrisoner_id());
+                System.out.println(dataList.size());
+                if (dataList.size() < 2) {
+                    CRUD.Crime_profile_CRUD.update_numberOfCriminal_decrease(crime_list_Controller.crime.getId(), crime_list_Controller.crime.getNumber());
+                }
+                CRUD.Has_crime_CRUD.deleteByID(crime_list_Controller.suspect.getId());
+                App.setRoot("homePage");
+            } else if (option.get() == ButtonType.CANCEL) {
+
+            } else {
+
+            }
+        }
+    }
+
+    @FXML
     void updateItem(ActionEvent event) {
         homePage.crime = crime_list_Controller.crime;
         crime_list_Controller.criminal_form_static.setVisible(false);
@@ -303,7 +348,8 @@ public class homePage implements Initializable {
         suatoipham_btn_static = suatoipham_btn;
         xoatoipham_btn_static = xoatoipham_btn;
         themtoipham_btn_static = themtoipham_btn;
-
+        suatoipham_hoso_btn_static = suatoipham_hoso_btn;
+        xoatoipham_hoso_btn_static = xoatoipham_hoso_btn;
         rootItem = new TreeItem<>("Phân loại hồ sơ");
         List<CRUD.Crime_type> crime_type_list = new ArrayList<>();
         crime_type_list = Crime_type_CRUD.getList();

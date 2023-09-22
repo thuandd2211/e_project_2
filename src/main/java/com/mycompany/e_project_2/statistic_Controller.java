@@ -206,7 +206,7 @@ public class statistic_Controller implements Initializable {
             data_crime.add(statistic_Crime);
         }
     }
-    
+
     void setItemCrime_type() {
         data_crime_type_list = new ArrayList<>();
         for (Crime_type crime_type : Crime_type_list) {
@@ -245,6 +245,12 @@ public class statistic_Controller implements Initializable {
         crime_initialize();
         crime_type_initialize();
         prisonser_initialize();
+        homePage.suavuviec_btn_static.setVisible(false);
+        homePage.xoavuviec_btn_static.setVisible(false);
+        homePage.suatoipham_hoso_btn_static.setVisible(false);
+        homePage.xoatoipham_hoso_btn_static.setVisible(false);
+        homePage.themtoipham_btn_static.setVisible(false);
+        
     }
 
 }
